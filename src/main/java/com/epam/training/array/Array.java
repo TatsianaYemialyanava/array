@@ -1,8 +1,69 @@
 package com.epam.training.array;
 
-//TODO: write a wrapper class for a java int array, make this class immutable
+import java.util.Arrays;
+
 public class Array {
-  
-  private int[] items;
+
+	private final int[] items;
+
+	public Array(){
+		items = new int[]{};
+	}
+	
+	public Array(int[] items){
+		this.items = items;
+	}
+	
+	public int[] getItems() {
+		return Arrays.copyOf(items, items.length);
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (( items == null) ? 0 : items.hashCode());
+        return result;    	    
+	}
+	
+	@Override
+	public boolean equals(Object anotherObject) {
+		if (this == anotherObject) {
+			return true;
+		}
+			
+		if (!(anotherObject instanceof Array)) {
+			return false;
+		} 
+			
+		Array anotherArray = (Array) anotherObject;
+		if (this.items == null) {
+			if (anotherArray.items == null) {
+				return true;
+			} else {
+				return false;
+			}
+		} 
+		
+		if (!Arrays.equals(this.items, anotherArray.items)) {
+			return false;
+		} 
+	    return true;
+	}
+	
+	@Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
+        for(int i = 0; i < items.length; i++) {
+            stringBuilder.append(items[i]);
+            if(i != items.length - 1) {
+                stringBuilder.append(", ");
+            }
+        }
+        stringBuilder.append("]");
+        return stringBuilder.toString();
+    }
+		
 
 }

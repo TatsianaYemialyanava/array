@@ -52,7 +52,6 @@ public class ArrayLogic {
 		return true;
 	}
 
-
 	public int searchMin (Array array) {
 		int [] arraySerched = array.getItems();
 		int min = arraySerched[0];
@@ -63,6 +62,7 @@ public class ArrayLogic {
 		}
 		return min;
 	}
+	
 	public int searchMax (Array array) {
 		int [] arraySerched = array.getItems();
 		int max = arraySerched[0];

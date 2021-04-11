@@ -25,30 +25,23 @@ public class Array {
 		result = prime * result + (( items == null) ? 0 : items.hashCode());
         return result;    	    
 	}
-	
+
 	@Override
-	public boolean equals(Object anotherObject) {
-		if (this == anotherObject) {
+	public boolean equals(Object obj) {
+		if (this == obj) {
 			return true;
 		}
-			
-		if (!(anotherObject instanceof Array)) {
+		if (obj == null) {
 			return false;
-		} 
-			
-		Array anotherArray = (Array) anotherObject;
-		if (this.items == null) {
-			if (anotherArray.items == null) {
-				return true;
-			} else {
-				return false;
-			}
-		} 
-		
-		if (!Arrays.equals(this.items, anotherArray.items)) {
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
-		} 
-	    return true;
+		}
+		Array other = (Array) obj;
+		if (!Arrays.equals(items, other.items)) {
+			return false;
+		}
+		return true;
 	}
 	
 	@Override
@@ -64,6 +57,10 @@ public class Array {
         stringBuilder.append("]");
         return stringBuilder.toString();
     }
+
+	
+
+
 		
 
 }

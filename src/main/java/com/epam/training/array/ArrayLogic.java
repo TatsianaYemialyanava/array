@@ -42,14 +42,15 @@ public class ArrayLogic {
 		}
 		return new Array(resultArray);
 	}
-	
+
 	public boolean isPrimeNumber(int a) {
+		boolean result = true;
 		for(int i = 2; i < a; i++) {
 			if(a % i == 0) {
-				return false;
+				result = false;
 			}
 		} 
-		return true;
+		return result;
 	}
 
 	public int searchMin (Array array) {
@@ -62,7 +63,7 @@ public class ArrayLogic {
 		}
 		return min;
 	}
-	
+
 	public int searchMax (Array array) {
 		int [] arraySerched = array.getItems();
 		int max = arraySerched[0];
